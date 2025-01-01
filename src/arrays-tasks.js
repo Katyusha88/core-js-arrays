@@ -107,8 +107,10 @@ function removeFalsyValues(arr) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  return arr.map((element) => {
+    return element.length;
+  });
 }
 
 /**
@@ -125,8 +127,12 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  const res =
+    arr.reduce((sum, val) => {
+      return sum + val;
+    }, 0) / arr.length;
+  return res;
 }
 
 /**
@@ -139,8 +145,13 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const arrSpl = arr.split('');
+  let schet = 0;
+  for (let i = 0; i < arrSpl.length; i += 1) {
+    schet = Math.max(schet, arrSpl[i].length);
+  }
+  return schet;
 }
 
 /**
@@ -184,8 +195,9 @@ function insertItem(/* arr, item, index */) {
  *    getHead([ 'a', 'b', 'c', 'd'], 3) => [ 'a', 'b', 'c' ]
  *    getHead([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getHead(/* arr, n */) {
-  throw new Error('Not implemented');
+function getHead(arr, n) {
+  const resGetHead = arr.slice(0, n);
+  return resGetHead;
 }
 
 /**
@@ -199,8 +211,8 @@ function getHead(/* arr, n */) {
  *    getTail([ 'a', 'b', 'c', 'd'], 3) => [ 'b', 'c', 'd' ]
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  return arr.slice(-n);
 }
 
 /**
@@ -528,8 +540,28 @@ function shiftArray(/* arr, n */) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const mapper = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+  return arr.sort((a, b) => {
+    if (mapper.indexOf(a) < mapper.indexOf(b)) {
+      return -1;
+    }
+    if (mapper.indexOf(a) > mapper.indexOf(b)) {
+      return 1;
+    }
+    return 0;
+  });
 }
 
 /**
@@ -551,8 +583,21 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   swapHeadAndTail([]) => []
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const hatsi = Math.floor(arr.length / 2);
+  let res = [];
+  let tail = [];
+  let head = [];
+  if (arr.length % 2 === 0) {
+    tail = arr.slice(hatsi);
+    head = arr.slice(0, hatsi);
+  } else {
+    tail = arr.slice(hatsi + 1);
+    tail.push(arr[hatsi]);
+    head = arr.slice(0, hatsi);
+  }
+  res = tail.concat(head);
+  return res;
 }
 
 module.exports = {
