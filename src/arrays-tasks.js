@@ -36,10 +36,18 @@ function getIntervalArray(start, end) {
  * @example
  *    sumArrays([1, 2, 3], [4, 5, 6]) => [5, 7, 9]
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
- *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
+ *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0Returns the average of all items in the specified array of numbers., 2, 4, 4]
  */
 function sumArrays(/* arr1, arr2 */) {
   throw new Error('Not implemented');
+  // if (arr1.length !== arr2.length) {
+  //   return ;
+  // }
+  // const sum = [];
+  // for (let i = 0; i <arr1.length; i += 1 ) {
+  //   sum.push(arr1[i] + arr2[2]);
+  // }
+  // return sum;
 }
 
 /**
@@ -114,7 +122,7 @@ function getStringsLength(arr) {
 }
 
 /**
- * Returns the average of all items in the specified array of numbers.
+ *
  * The result should be rounded to two decimal places.
  *
  * @param {array} arr - The input array
@@ -128,11 +136,9 @@ function getStringsLength(arr) {
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
 function getAverage(arr) {
-  const res =
-    arr.reduce((sum, val) => {
-      return sum + val;
-    }, 0) / arr.length;
-  return res;
+  const sum = arr.reduce((a, n) => a + n, 0);
+  const leng = arr.length;
+  return sum / leng;
 }
 
 /**
@@ -212,7 +218,8 @@ function getHead(arr, n) {
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
 function getTail(arr, n) {
-  return arr.slice(-n);
+  const tail = arr.slice(arr.length - n);
+  return tail;
 }
 
 /**
@@ -259,13 +266,12 @@ function toStringList(arr) {
  *   distinct([]) => []
  */
 function distinct(arr) {
-  let newArr = [];
-  newArr = arr.forEach((element) => {
-    if (!newArr.includes(element)) {
-      newArr.push(element);
+  const result = [];
+  for (let i = 0; i < arr.length; i += 1)
+    if (result.indexOf(arr[i]) === -1 && arr[i] !== '') {
+      result.push(arr[i]);
     }
-  });
-  return newArr;
+  return result;
 }
 
 /**
@@ -416,8 +422,16 @@ function getFalsyValuesCount(/* arr */) {
  *                              [0,0,0,1,0],
  *                              [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  let result = new Array(n);
+  result.fill(0);
+  result = result.map(function (index) {
+    const subArr = new Array(n);
+    subArr.fill(0);
+    subArr[index] = 1;
+    return subArr;
+  });
+  return result;
 }
 
 /**
@@ -445,8 +459,9 @@ function getIndicesOfOddNumbers(/* numbers */) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  const hex = arr;
+  return hex;
 }
 
 /**
@@ -479,8 +494,9 @@ function getMaxItems(arr, n) {
  *    findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd']) => [ 'b', 'c' ]
  *    findCommonElements([1, 2, 3], ['a', 'b', 'c']) => []
  */
-function findCommonElements(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function findCommonElements(arr1, arr2) {
+  const common = arr1.filter((elem) => arr2.includes(elem));
+  return common;
 }
 
 /**
@@ -512,8 +528,14 @@ function findLongestIncreasingSubsequence(/* nums */) {
  *  propagateItemsByPositionIndex([ 'a', 'b', 'c', null ]) => [ 'a', 'b', 'b', 'c', 'c', 'c',  null, null, null, null ]
  *  propagateItemsByPositionIndex([ 1,2,3,4,5 ]) => [ 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  if (arr.length === 0 || arr.length === 1) {
+    return arr;
+  }
+  return arr.reduce((acc, item, i) => {
+    acc.push(...Array(i + 1).fill(item));
+    return acc;
+  }, []);
 }
 
 /**
