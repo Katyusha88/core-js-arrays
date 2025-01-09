@@ -135,10 +135,11 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(arr) {
-  const sum = arr.reduce((a, n) => a + n, 0);
-  const leng = arr.length;
-  return sum / leng;
+function getAverage(/* arr */) {
+  throw new Error('Not implemented');
+  // const sum = arr.reduce((a, n) => a + n, 0);
+  // const leng = arr.length;
+  // return sum / leng;
 }
 
 /**
@@ -151,13 +152,14 @@ function getAverage(arr) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(arr) {
-  const arrSpl = arr.split('');
-  let schet = 0;
-  for (let i = 0; i < arrSpl.length; i += 1) {
-    schet = Math.max(schet, arrSpl[i].length);
-  }
-  return schet;
+function isSameLength(/* arr */) {
+  throw new Error('Not implemented');
+  // const arrSpl = arr.split('');
+  // let schet = 0;
+  // for (let i = 0; i < arrSpl.length; i += 1) {
+  //   schet = Math.max(schet, arrSpl[i].length);
+  // }
+  // return schet;
 }
 
 /**
@@ -186,8 +188,9 @@ function isValueEqualsIndex(/* arr */) {
  *    insertItem([ 1, 3, 4, 5 ], 2, 1)  => [ 1, 2, 3, 4, 5 ]
  *    insertItem([ 1, 'b', 'c'], 'x', 0) => [ 'x', 1, 'b', 'c' ]
  */
-function insertItem(arr, item, index) {
-  return arr.slice(index, 0, item);
+function insertItem(/* arr, item, index */) {
+  throw new Error('Not implemented');
+  // return arr.slice(index, 0, item);
 }
 
 /**
@@ -422,16 +425,8 @@ function getFalsyValuesCount(/* arr */) {
  *                              [0,0,0,1,0],
  *                              [0,0,0,0,1]]
  */
-function getIdentityMatrix(n) {
-  let result = new Array(n);
-  result.fill(0);
-  result = result.map(function (index) {
-    const subArr = new Array(n);
-    subArr.fill(0);
-    subArr[index] = 1;
-    return subArr;
-  });
-  return result;
+function getIdentityMatrix(/* n */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -459,9 +454,8 @@ function getIndicesOfOddNumbers(/* numbers */) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(arr) {
-  const hex = arr;
-  return hex;
+function getHexRGBValues(/* arr */) {
+  throw new Error('Not implemented');
 }
 
 /**
