@@ -38,16 +38,12 @@ function getIntervalArray(start, end) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0Returns the average of all items in the specified array of numbers., 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
-  // if (arr1.length !== arr2.length) {
-  //   return ;
-  // }
-  // const sum = [];
-  // for (let i = 0; i <arr1.length; i += 1 ) {
-  //   sum.push(arr1[i] + arr2[2]);
-  // }
-  // return sum;
+function sumArrays(arr1, arr2) {
+  // throw new Error('Not implemented');
+  return Array.from(
+    { length: Math.max(arr1.length, arr2.length) },
+    (_, i) => (arr1[i] || 0) + (arr2[i] || 0)
+  );
 }
 
 /**
@@ -167,8 +163,9 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  // throw new Error('Not implemented');
+  return arr.some((a, b) => a === b);
 }
 
 /**
@@ -397,8 +394,9 @@ function getElementByIndices(/* arr, indices */) {
  *  getFalsyValuesCount([ -1, 'false', null, 0 ]) => 2
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  // throw new Error('Not implemented');
+  return arr.filter((i) => !i).length;
 }
 
 /**
